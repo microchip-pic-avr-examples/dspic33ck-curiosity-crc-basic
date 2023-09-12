@@ -27,7 +27,10 @@
 
 static uint16_t calculateHardwareCRC(uint8_t data[], uint8_t dataLength)
 {
-    // uses the CRC-16-CCITT polynomial and its default settings
+    /*  
+        uses the CRC-16-CCITT polynomial and its default settings in MCC Melody
+        CRC module version 1.0.3
+    */
     
     // starts the CRC calculation
     CRC_CalculateBufferStart(data, dataLength);                       
@@ -74,6 +77,8 @@ int main(void)
     
     uint16_t hardwareResult;
     uint16_t softwareResult;
+    
+    printf("\r\nCRC Basic Code Example Results\r\n");
     
     hardwareResult = calculateHardwareCRC(buffer, bufferLength);          
     
