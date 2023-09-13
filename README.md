@@ -18,7 +18,7 @@ The code example uses MCC Melody CRC Driver to configure CRC using the standard 
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.3** or newer (MCC Melody Content Manager)
 - CRC PLIB **1.3.0** or newer (MCC Melody Content Manager)
-- TeraTerm
+- Any terminal program, like TeraTerm (https://ttssh2.osdn.jp/index.html.en)
 
 ## Hardware Used
 
@@ -54,13 +54,12 @@ This code example uses the default settings for CRC16-CCITT. These are as follow
 
 ### Online Calculator
 
-Online calculators can be used to test different configurations and try different settings. They can also be used to verify results obtained by hardware calculations.
-
-[Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html)
+Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator for comparison purposes. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
 
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
 - Select "CRC-CCITT" button. 
-- Enter "87654321" in the "Data sequence."
+- Enter "%38%37%36%35%34%33%32%31" in the "Data sequence."
+  - Note: Putting "%" before a byte tells this calculator that it is in hexadecimal. Do not include spaces or leave out the "%", as the calculator will pass it as a string.
 - Click the "compute" button.
   
 The result should be 0x9B4D, matching the calculation performed by the MCC Melody CRC Driver.
