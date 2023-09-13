@@ -29,7 +29,7 @@ static uint16_t calculateHardwareCRC(uint8_t data[], uint8_t dataLength)
 {
     /*  
         uses the CRC-16-CCITT polynomial and its default settings in MCC Melody
-        CRC module version 1.0.3
+        CRC Driver version 1.0.3
     */
     
     // starts the CRC calculation
@@ -38,7 +38,7 @@ static uint16_t calculateHardwareCRC(uint8_t data[], uint8_t dataLength)
     // active until calculation is done
     while(CRC_CalculationIsDone() == false) {};
     
-    // obtains the calculation result from the registers
+    // obtains the calculation result from the registers, do not reverse and XOR = 0
     return CRC_CalculationResultGet(false, 0); 
 }
 
