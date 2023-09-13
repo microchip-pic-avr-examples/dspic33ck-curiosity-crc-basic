@@ -7,7 +7,7 @@
       "version":"1.0.0",
       "displayName":"dsPIC33CK CRC Code Example",
       "projectName":"dspic33ck-curiosity-crc-basic",
-      "shortDescription":"This MPLAB® X MCC Melody code example shows how to user the CRC module to verify transmissions.",
+      "shortDescription":"This code example shows how to configure and use the MPLAB® Code Configurator Melody CRC module to compute a CRC value",
       "ide":{
          "name":"MPLABX",
          "semverRange":">=5.40.0"
