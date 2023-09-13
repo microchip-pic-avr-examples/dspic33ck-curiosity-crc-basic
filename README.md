@@ -30,7 +30,7 @@ The code example uses MCC Melody CRC Driver to configure CRC using the standard 
 
 1. Connect the board to the PC using a USB cable.
 
-![Hardware Setup Image](images/hardware_setup50.jpg)
+![Hardware Setup Image](images/hardware_setup.jpg)
 
 ## Software Setup
 
