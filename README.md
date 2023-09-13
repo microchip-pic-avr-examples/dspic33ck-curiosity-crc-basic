@@ -38,7 +38,9 @@ The code example uses MCC Melody CRC Driver to configure CRC using the standard 
 1. Launch TeraTerm. 
 2. Go to File -> New Connection.
 3. Select the "Serial" option and select the correct COM Port from the dropdown menu.
-4. Ensure that the UART baud rate for TeraTerm is 9600.
+4. Go to Setup -> Serial port and ensure that the settings match the ones below:
+
+![TeraTerm Serial Port Settings](images/teraterm_serial_port_menu.JPG)
 
 ### MPLAB® X IDE Setup
 1. Launch MPLAB® X IDE and load the dspic33ck-curiosity-crc-basic project.
