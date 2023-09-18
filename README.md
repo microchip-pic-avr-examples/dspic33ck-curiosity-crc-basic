@@ -2,7 +2,7 @@
 
 # dsPIC33CK Curiosity CRC Basic Code Example v1.0.0
 
-The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure CRC using the standard CRC16-CCITT settings and calculate the hardware CRC result. The hardware CRC computation is then compared with a software implementation to verify results. The result is displayed on Tera Term.
+The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure CRC using the standard CRC-16-CCITT settings and calculate the hardware CRC result. The hardware CRC computation is then compared with a software implementation to verify results. The result is displayed on Tera Term.
 
 ## Related Documentation
 
@@ -48,7 +48,7 @@ The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure 
 
 ## CRC Settings
 
-This code example uses the default settings for CRC16-CCITT. These are as follows:
+This code example uses the default settings for CRC-16-CCITT. These are as follows:
 
 ![CRC Settings in MCC Melody Builder GUI](images/demo_CRC_settings.JPG)
 
@@ -66,6 +66,6 @@ The result should be 0x9B4D, matching the calculation performed by the MCC Melod
 
 ## Operation
 
-Once the project is built and the device is programmed, Tera Term will print the results of both the hardware and software calculations.
+Once the project is built and the device is programmed, the terminal program will print the results of both the hardware and software calculations.
 
 ![Results printed on Tera Term](images/teraterm_output.JPG)
