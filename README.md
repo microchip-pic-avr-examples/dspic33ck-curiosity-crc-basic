@@ -18,7 +18,7 @@ The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure 
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.3** or newer (MCC Content Manager)
 - CRC PLIB **1.3.0** or newer (MCC Content Manager)
-- Any terminal program, like Tera Term (https://ttssh2.osdn.jp/index.html.en) or the MPLAB Data Visualizer
+- Any terminal program, like the MPLAB Data Visualizer or Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
 ## Hardware Used
 
@@ -34,11 +34,36 @@ The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure 
 
 ## Software Setup
 
-### Terminal Setup
-1. Launch the desired terminal program. 
-2. Create a new connection (Tera Term: File -> New Connection, Data Visualizer: Serial Port list on the left side).
-3. Select the correct COM Port from the dropdown menu on Tera Term or the list on the left on the Data Visualizer.
-4. Verify that the serial port settings match the ones below (Setup -> Serial port on Tera Term, settings icon next to the source dropdown in the input section on the Data Visualizer):
+### Terminal Setup (Data Visualizer)
+
+1. Launch the MPLAB Data Visualizer.
+
+![Data Visualizer Icon](images/data_visualizer_icon.JPG)
+
+2. Find the correct COM Port from the list on the left and click the play button.
+
+![COM Port list withplay button highlighted](images/dv_COM_select_play_highlighted.JPG)
+
+3. Select the "Send to Terminal" button.
+
+![Send to Terminal button](images/dv_data_capture_menu.JPG)
+
+4. Click on the settings icon next to the source dropdown in the input section.
+
+![Source Settings Icon](images/dv_source_settings_button.JPG)
+
+5. Verify that the serial port settings match the ones in the settings image.
+
+![Source Settings Menu](images/dv_source_settings.JPG)
+
+### Terminal Setup (Tera Term)
+1. Launch Tera Term
+2. Go to File -> New Connection.
+3. Select the "Serial" option and select the correct COM Port from the dropdown menu.
+
+![COM port selection](images/tera_term_COM_port_selection.JPG)
+
+4. Go to Setup -> Serial port and ensure that the settings match the ones below.
 
 ![Tera Term Serial Port Settings](images/teraterm_serial_port_menu.JPG)
 
@@ -69,3 +94,5 @@ The result should be 0x9B4D, matching the calculation performed by the MCC Melod
 Once the project is built and the device is programmed, the terminal program will print the results of both the hardware and software calculations.
 
 ![Results printed on Tera Term](images/teraterm_output.JPG)
+
+![Results printed on Data Visualizer](images/dv_output.JPG)
