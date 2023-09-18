@@ -18,7 +18,7 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.3** or newer (MCC Content Manager)
 - CRC PLIB **1.3.0** or newer (MCC Content Manager)
-- Any terminal program, like the MPLAB® Data Visualizer or Tera Term (https://ttssh2.osdn.jp/index.html.en)
+- Any terminal program, like the MPLAB® Data Visualizer (https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer) or Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
 ## Hardware Used
 
