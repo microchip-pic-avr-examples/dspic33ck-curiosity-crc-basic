@@ -1,8 +1,8 @@
 ![Microchip Logo](images/microchip.jpg) 
 
-# dsPIC33CK Curiosity CRC Basic Code Example v1.0.0
+# dsPIC33CK Curiosity CRC Basic Code Example
 
-The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure CRC using the standard CRC-16-CCITT settings and calculate the hardware CRC result. The hardware CRC computation is then compared with a software implementation to verify results. The result is displayed on Tera Term.
+The code example uses MPLAB® Code Configurator Melody CRC Driver to configure CRC using the standard CRC-16-CCITT settings and calculate the hardware CRC result. The hardware CRC computation is then compared with a software implementation to verify results. The result is displayed on Tera Term.
 
 ## Related Documentation
 
@@ -18,7 +18,7 @@ The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure 
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.3** or newer (MCC Content Manager)
 - CRC PLIB **1.3.0** or newer (MCC Content Manager)
-- Any terminal program, like the MPLAB Data Visualizer or Tera Term (https://ttssh2.osdn.jp/index.html.en)
+- Any terminal program, like the MPLAB® Data Visualizer or Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
 ## Hardware Used
 
@@ -36,7 +36,7 @@ The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure 
 
 ### Terminal Setup (Data Visualizer)
 
-1. Launch the MPLAB Data Visualizer.
+1. Launch the MPLAB® Data Visualizer.
 
 ![Data Visualizer Icon](images/data_visualizer_icon.JPG)
 
@@ -94,5 +94,3 @@ The result should be 0x9B4D, matching the calculation performed by the MCC Melod
 Once the project is built and the device is programmed, the terminal program will print the results of both the hardware and software calculations.
 
 ![Results printed on Tera Term](images/teraterm_output.JPG)
-
-![Results printed on Data Visualizer](images/dv_output.JPG)
