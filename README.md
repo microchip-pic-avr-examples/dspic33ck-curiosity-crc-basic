@@ -52,7 +52,7 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 ![Source Settings Icon](images/dv_source_settings_button.JPG)
 
-5. Verify that the serial port settings match the ones in the settings image.
+5. Verify that the serial port settings match the following:
 
 ![Source Settings Menu](images/dv_source_settings.JPG)
 
@@ -63,7 +63,7 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 ![COM port selection](images/tera_term_COM_port_selection.JPG)
 
-4. Go to Setup -> Serial port and ensure that the settings match the ones below.
+4. Go to Setup -> Serial port and ensure that the settings match the following:
 
 ![Tera Term Serial Port Settings](images/teraterm_serial_port_menu.JPG)
 
@@ -73,7 +73,7 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 ## CRC Settings
 
-This code example uses the default settings for CRC-16-CCITT. These are as follows:
+This code example uses the following default settings for CRC-16-CCITT:
 
 ![CRC Settings in MCC Melody Builder GUI](images/demo_CRC_settings.JPG)
 
