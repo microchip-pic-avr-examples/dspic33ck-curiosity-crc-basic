@@ -5,4 +5,4 @@
 
 ## Features Added/Updated
 - The code example showcases CRC computation using the MCC Melody CRC Driver APIs.
-- Compares CRC16-CCITT hardware CRC computation to software CRC computation.
+- Compares CRC-16-CCITT hardware CRC computation to software CRC computation.

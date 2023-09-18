@@ -1,8 +1,8 @@
 ![Microchip Logo](images/microchip.jpg) 
 
-# dsPIC33CK Curiosity CRC Basic Code Example 
+# dsPIC33CK Curiosity CRC Basic Code Example v1.0.0
 
-The code example uses MCC Melody CRC Driver to configure CRC using the standard CRC16-CCITT settings and calculate the hardware CRC result. The hardware CRC computation is then compared with a software implementation to verify results. The result is displayed on TeraTerm.
+The code example uses MPLAB(R) Code Configurator Melody CRC Driver to configure CRC using the standard CRC16-CCITT settings and calculate the hardware CRC result. The hardware CRC computation is then compared with a software implementation to verify results. The result is displayed on Tera Term.
 
 ## Related Documentation
 
@@ -16,9 +16,9 @@ The code example uses MCC Melody CRC Driver to configure CRC using the standard 
 - MPLAB® XC16 Compiler **2.10** or a newer compiler (https://www.microchip.com/xc16)
 - MPLAB® Code Configurator (MCC) **5.5.7** or newer (https://www.microchip.com/mcc)
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
-- CRC Driver **1.0.3** or newer (MCC Melody Content Manager)
-- CRC PLIB **1.3.0** or newer (MCC Melody Content Manager)
-- Any terminal program, like TeraTerm (https://ttssh2.osdn.jp/index.html.en)
+- CRC Driver **1.0.3** or newer (MCC Content Manager)
+- CRC PLIB **1.3.0** or newer (MCC Content Manager)
+- Any terminal program, like Tera Term (https://ttssh2.osdn.jp/index.html.en) or the MPLAB Data Visualizer
 
 ## Hardware Used
 
@@ -34,13 +34,13 @@ The code example uses MCC Melody CRC Driver to configure CRC using the standard 
 
 ## Software Setup
 
-### TeraTerm Setup
-1. Launch TeraTerm. 
-2. Go to File -> New Connection.
-3. Select the "Serial" option and select the correct COM Port from the dropdown menu.
-4. Go to Setup -> Serial port and ensure that the settings match the ones below:
+### Terminal Setup
+1. Launch the desired terminal program. 
+2. Create a new connection (Tera Term: File -> New Connection, Data Visualizer: Serial Port list on the left side).
+3. Select the correct COM Port from the dropdown menu on Tera Term or the list on the left on the Data Visualizer.
+4. Verify that the serial port settings match the ones below (Setup -> Serial port on Tera Term, settings icon next to the source dropdown in the input section on the Data Visualizer):
 
-![TeraTerm Serial Port Settings](images/teraterm_serial_port_menu.JPG)
+![Tera Term Serial Port Settings](images/teraterm_serial_port_menu.JPG)
 
 ### MPLAB® X IDE Setup
 1. Launch MPLAB® X IDE and load the dspic33ck-curiosity-crc-basic project.
@@ -66,6 +66,6 @@ The result should be 0x9B4D, matching the calculation performed by the MCC Melod
 
 ## Operation
 
-Once the project is built and the device is programmed, TeraTerm will print the results of both the hardware and software calculations.
+Once the project is built and the device is programmed, Tera Term will print the results of both the hardware and software calculations.
 
-![Results printed on TeraTerm](images/teraterm_output.JPG)
+![Results printed on Tera Term](images/teraterm_output.JPG)
