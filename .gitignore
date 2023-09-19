@@ -49,6 +49,7 @@ Makefile-genesis.properties
 *.bak
 *.doc
 *.docx
+report/
 
 
 

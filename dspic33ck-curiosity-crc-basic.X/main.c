@@ -1,5 +1,5 @@
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+ï¿½ [2023] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -23,6 +23,14 @@
 #include "mcc_generated_files/crc/crc.h"
 #include <stdbool.h>
 #include <stdint.h>
+/**
+ *  The use of stdio.h functions does not follow the MISRA 2012 specification.
+ * 
+ *  (Rule 21.6) REQUIRED: The standard library input/output functions shall not be used
+ * 
+ *  Reasoning: printf is required for printing to the terminal in this code example
+ *  cppcheck-suppress misra-c2012-21.6
+ */
 #include <stdio.h>
 
 static uint16_t calculateHardwareCRC(uint8_t data[], uint8_t dataLength)
@@ -78,7 +86,7 @@ int main(void)
     uint16_t hardwareResult;
     uint16_t softwareResult;
     
-    printf("\r\nCRC Basic Code Example Results\r\n");
+    (void) printf("\r\nCRC Basic Code Example Results\r\n");
     
     hardwareResult = calculateHardwareCRC(buffer, bufferLength);          
     
@@ -90,9 +98,14 @@ int main(void)
     // prints the software CRC result in hexadecimal
     (void) printf("Software CRC Result: 0x%04X\r\n", (unsigned short)softwareResult);
     
-    (hardwareResult == softwareResult) ? 
-            (void) printf("\r\nSuccess\r\n") :
-            (void) printf("\r\nError\r\n");
+    if (hardwareResult == softwareResult) 
+    {
+        (void) printf("\r\nSuccess\r\n");
+    }
+    else 
+    { 
+        (void) printf("\r\nError\r\n");
+    }
     
     while(1) {};
 }
