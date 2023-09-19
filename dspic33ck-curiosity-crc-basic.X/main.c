@@ -23,13 +23,12 @@
 #include "mcc_generated_files/crc/crc.h"
 #include <stdbool.h>
 #include <stdint.h>
-/**
+/*  cppcheck-suppress misra-c2012-21.6
  *  The use of stdio.h functions does not follow the MISRA 2012 specification.
  * 
  *  (Rule 21.6) REQUIRED: The standard library input/output functions shall not be used
  * 
  *  Reasoning: printf is required for printing to the terminal in this code example
- *  cppcheck-suppress misra-c2012-21.6
  */
 #include <stdio.h>
 
