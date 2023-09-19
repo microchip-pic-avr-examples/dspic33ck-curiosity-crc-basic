@@ -2,7 +2,7 @@
 
 # dsPIC33CK Curiosity CRC Basic Code Example
 
-The code example uses MPLAB® Code Configurator Melody CRC Driver to configure CRC using the standard CRC-16-CCITT settings and calculate the hardware CRC result. The hardware CRC computation is then compared with a software implementation to verify results. The result is displayed on Tera Term.
+The code example uses MPLAB® Code Configurator Melody CRC Driver to configure CRC using the standard CRC-16-CCITT settings and calculate the hardware CRC result. The hardware CRC computation is then compared with a software implementation to verify results. The result is displayed on the terminal.
 
 ## Related Documentation
 
@@ -18,7 +18,9 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 - MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.3** or newer (MCC Content Manager)
 - CRC PLIB **1.3.0** or newer (MCC Content Manager)
-- Any terminal program, like the MPLAB® Data Visualizer (https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer) or Tera Term (https://ttssh2.osdn.jp/index.html.en)
+- UART Driver **1.8.0** or newer (MCC Content Manager)
+- UART PLIB **1.4.1** or newer (MCC Content Manager)
+- Any terminal program, like the MPLAB® Data Visualizer (https://www.microchip.com/datavisualizer) or Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
 ## Hardware Used
 
@@ -65,7 +67,7 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 4. Go to Setup -> Serial port and ensure that the settings match the following:
 
-![Tera Term Serial Port Settings](images/teraterm_serial_port_menu.JPG)
+![Tera Term Serial Port Settings](images/tera_term_serial_port_menu.JPG)
 
 ### MPLAB® X IDE Setup
 1. Launch MPLAB® X IDE and load the dspic33ck-curiosity-crc-basic project.
@@ -93,4 +95,4 @@ The result should be 0x9B4D, matching the calculation performed by the MCC Melod
 
 Once the project is built and the device is programmed, the terminal program will print the results of both the hardware and software calculations.
 
-![Results printed on Tera Term](images/teraterm_output.JPG)
+![Results printed on Tera Term](images/tera_term_output.JPG)
