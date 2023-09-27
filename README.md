@@ -84,7 +84,13 @@ This code example uses the following default settings for CRC-16-CCITT:
 Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator for comparison purposes. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
 
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
-- Select "CRC-CCITT" button. 
+- Select "CRC-CCITT" button. This should set all of the settings to their desired values, but just to check:
+  - CRC order should be 16, since we are using a 16-bit polynomial.
+  - CRC polynom should be set to "1021," which is the hex value for the CRC-16-CCITT polynomial.
+  - Initial value should be set to "FFFF," which is the hex value for -1, the standard for CRC-16-CCITT.
+  - Final XOR value should be set to zero, the standard value for CRC-16-CCITT.
+  - The reverse data bytes checkbox sets the shift direction. Unchecked leads to using the MSB direction, which is the standard for CRC-16-CCITT.
+  - The reverse CRC result before Final XOR checkbox sets whether the CRC result will be reversed after calculation. Unchecked leads to no reverse being performed, which is the standard for CRC-16-CCITT.
 - Enter "%38%37%36%35%34%33%32%31" in the "Data sequence."
   - Note: Putting "%" before a byte tells this calculator that it is in hexadecimal. Do not include spaces or leave out the "%", as the calculator will pass it as a string.
 - Click the "compute" button.
