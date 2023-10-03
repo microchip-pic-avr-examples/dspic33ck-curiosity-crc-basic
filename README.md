@@ -75,7 +75,18 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 ## CRC Settings
 
-This code example uses the following default settings for CRC-16-CCITT:
+This code example uses the following settings:
+
+- Shift direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
+- Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
+- Reverse: The result of the CRC calculation can be reversed immediately after calculation. The value is true (perform reverse) or false (no reverse).
+- Final XOR Value: The value XOR'd with the CRC result after the calculation and any reverses. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
+- Polynomial: Generator polynomial used in the calculation of the CRC value. Many effective polynomials exist, but some of the most common are CRC-16-CCITT (0x1021) and CRC-32 (0x04C11DB7).
+
+
+### Online Calculator
+
+Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator for comparison purposes. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
 
 | Setting | MCC Melody | Online Calculator | Firmware |
 | --- | --- | --- | --- |
@@ -87,22 +98,8 @@ This code example uses the following default settings for CRC-16-CCITT:
 | Reverse | ![Reverse in MCC Melody](images/crc_settings_table_images/reverse_mcc_melody.JPG) | ![Reverse in Online Calculator](images/crc_settings_table_images/reverse_online_calc.JPG) | ![Reverse in Firmware](images/crc_settings_table_images/reverse_firmware.JPG) | 
 | Data | Not visible in the MCC Melody UI | ![Data in Online Calculator](images/crc_settings_table_images/data_online_calc.JPG) | ![Data in Firmware](images/crc_settings_table_images/data_firmware.JPG) | 
 
-![CRC Settings in MCC Melody Builder GUI](images/demo_CRC_settings.JPG)
-
-### Online Calculator
-
-Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator for comparison purposes. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
-
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
-- Select "CRC-CCITT" button. This will set all of the settings to their desired values:
-  - CRC order should be 16, since we are using a 16-bit polynomial.
-  - CRC polynom should be set to "1021," which is the hex value for the CRC-16-CCITT polynomial.
-  - Initial value should be set to "FFFF," which is the hex value for -1, the standard for CRC-16-CCITT.
-  - Final XOR value should be set to zero, the standard value for CRC-16-CCITT.
-  - The reverse data bytes checkbox sets the shift direction. Unchecked leads to using the MSB direction, which is the standard for CRC-16-CCITT.
-  - The reverse CRC result before Final XOR checkbox sets whether the CRC result will be reversed after calculation. Unchecked leads to no reverse being performed, which is the standard for CRC-16-CCITT.
-- Enter "%38%37%36%35%34%33%32%31" in the "Data sequence."
-  - Note: Putting "%" before a byte tells this calculator that it is in hexadecimal. Do not include spaces or leave out the "%", as the calculator will pass it as a string.
+- Select "CRC-CCITT" button.
 - Click the "compute" button.
   
 The result should be 0x9B4D, matching the calculation performed by the MCC Melody CRC Driver.
