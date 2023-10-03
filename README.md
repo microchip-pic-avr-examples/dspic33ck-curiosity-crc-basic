@@ -77,6 +77,16 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 This code example uses the following default settings for CRC-16-CCITT:
 
+| Setting | MCC Melody | Online Calculator | Firmware |
+| --- | --- | --- | --- |
+| CRC Order | ![CRC Order in MCC Melody](images/crc_settings_table_images/crc_order_mcc_melody.JPG) | ![CRC Order in Online Calculator](images/crc_settings_table_images/crc_order_online_calc.JPG) | ![CRC Order in Firmware](images/crc_settings_table_images/crc_order_firmware.JPG) | 
+| Polynomial | ![Polynomial in MCC Melody](images/crc_settings_table_images/polynomial_mcc_melody.JPG) | ![Polynomial in Online Calculator](images/crc_settings_table_images/polynomial_online_calc.JPG) | ![Polynomial in Firmware](images/crc_settings_table_images/polynomial_firmware.JPG) | 
+| Initial Value | ![Initial Value in MCC Melody](images/crc_settings_table_images/initial_value_mcc_melody.JPG) | ![Initial Value in Online Calculator](images/crc_settings_table_images/initial_value_online_calc.JPG) | ![Initial Value in Firmware](images/crc_settings_table_images/initial_value_firmware.JPG) | 
+| Final XOR | ![Final XOR in MCC Melody](images/crc_settings_table_images/final_xor_mcc_melody.JPG) | ![Final XOR in Online Calculator](images/crc_settings_table_images/final_xor_online_calc.JPG) | ![Final XOR in Firmware](images/crc_settings_table_images/final_xor_firmware.JPG) |
+| Shift Direction | ![Shift Direction in MCC Melody](images/crc_settings_table_images/shift_direction_mcc_melody.JPG) | ![Shift Direction in Online Calculator](images/crc_settings_table_images/shift_direction_online_calc.JPG) | ![Shift Direction in Firmware](images/crc_settings_table_images/shift_direction_firmware.JPG) | 
+| Reverse | ![Reverse in MCC Melody](images/crc_settings_table_images/reverse_mcc_melody.JPG) | ![Reverse in Online Calculator](images/crc_settings_table_images/reverse_online_calc.JPG) | ![Reverse in Firmware](images/crc_settings_table_images/reverse_firmware.JPG) | 
+| Data | Not visible in the MCC Melody UI | ![Data in Online Calculator](images/crc_settings_table_images/data_online_calc.JPG) | ![Data in Firmware](images/crc_settings_table_images/data_firmware.JPG) | 
+
 ![CRC Settings in MCC Melody Builder GUI](images/demo_CRC_settings.JPG)
 
 ### Online Calculator
@@ -84,7 +94,7 @@ This code example uses the following default settings for CRC-16-CCITT:
 Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator for comparison purposes. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
 
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
-- Select "CRC-CCITT" button. This should set all of the settings to their desired values, but just to check:
+- Select "CRC-CCITT" button. This will set all of the settings to their desired values:
   - CRC order should be 16, since we are using a 16-bit polynomial.
   - CRC polynom should be set to "1021," which is the hex value for the CRC-16-CCITT polynomial.
   - Initial value should be set to "FFFF," which is the hex value for -1, the standard for CRC-16-CCITT.
