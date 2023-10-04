@@ -100,6 +100,7 @@ Online calculators can be used to test different configurations and try differen
 
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
 - Select "CRC-CCITT" button.
+- Enter the folowing for "data sequence": %38%37%36%35%34%33%32%31
 - Click the "compute" button.
   
 The result should be 0x9B4D, matching the calculation performed by the MCC Melody CRC Driver.
