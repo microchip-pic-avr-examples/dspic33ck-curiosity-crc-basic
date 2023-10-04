@@ -75,7 +75,7 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 ## CRC Settings
 
-This code example uses the following settings:
+The following settings are used in the calculation of CRC values:
 
 - Shift direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
 - Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
@@ -88,15 +88,15 @@ This code example uses the following settings:
 
 Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator for comparison purposes. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
 
-| Setting | MCC Melody | Online Calculator | Firmware |
-| --- | --- | --- | --- |
-| CRC Order | ![CRC Order in MCC Melody](images/crc_settings_table_images/crc_order_mcc_melody.JPG) | ![CRC Order in Online Calculator](images/crc_settings_table_images/crc_order_online_calc.JPG) | ![CRC Order in Firmware](images/crc_settings_table_images/crc_order_firmware.JPG) | 
-| Polynomial | ![Polynomial in MCC Melody](images/crc_settings_table_images/polynomial_mcc_melody.JPG) | ![Polynomial in Online Calculator](images/crc_settings_table_images/polynomial_online_calc.JPG) | ![Polynomial in Firmware](images/crc_settings_table_images/polynomial_firmware.JPG) | 
-| Initial Value | ![Initial Value in MCC Melody](images/crc_settings_table_images/initial_value_mcc_melody.JPG) | ![Initial Value in Online Calculator](images/crc_settings_table_images/initial_value_online_calc.JPG) | ![Initial Value in Firmware](images/crc_settings_table_images/initial_value_firmware.JPG) | 
-| Final XOR | ![Final XOR in MCC Melody](images/crc_settings_table_images/final_xor_mcc_melody.JPG) | ![Final XOR in Online Calculator](images/crc_settings_table_images/final_xor_online_calc.JPG) | ![Final XOR in Firmware](images/crc_settings_table_images/final_xor_firmware.JPG) |
-| Shift Direction | ![Shift Direction in MCC Melody](images/crc_settings_table_images/shift_direction_mcc_melody.JPG) | ![Shift Direction in Online Calculator](images/crc_settings_table_images/shift_direction_online_calc.JPG) | ![Shift Direction in Firmware](images/crc_settings_table_images/shift_direction_firmware.JPG) | 
-| Reverse | ![Reverse in MCC Melody](images/crc_settings_table_images/reverse_mcc_melody.JPG) | ![Reverse in Online Calculator](images/crc_settings_table_images/reverse_online_calc.JPG) | ![Reverse in Firmware](images/crc_settings_table_images/reverse_firmware.JPG) | 
-| Data | Not visible in the MCC Melody UI | ![Data in Online Calculator](images/crc_settings_table_images/data_online_calc.JPG) | ![Data in Firmware](images/crc_settings_table_images/data_firmware.JPG) | 
+| Setting | MCC Melody | Online Calculator | Register | API | 
+| --- | --- | --- | --- | --- |
+| CRC Order | Word Width (Bits) | CRC order (1..64)| CRCCONH (CRCCONHbits.PLEN) | CRC_Initialize() |
+| Polynomial | Pre Defined Polynomial / Value | CRC polynom (hex) | CRCXORL (and CRCXORH for 32 bits) | CRC_Initialize() |
+| Initial Value | Initial Value | Initial value (hex) | CRCWDATL (and CRCWDATH for 32 bits) | CRC_SeedSet() |
+| Final XOR | Final XOR Value | Final XOR value (hex) | not stored in a register | CRC_CalculationResultXORGet() |
+| Shift Direction | Shift Direction | reverse data bytes | CRCCONL (CRCCONLbits.LENDIAN) | CRC_Initialize() | 
+| Reverse | Reverse CRC value (Before final XOR) | reverse CRC result before Final XOR | not stored in a register | CRC_CalculationResultReverseGet() | 
+| Data | Not visible in the MCC Melody UI | Data sequence | fed into CRCDATL | No API |
 
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
 - Select "CRC-CCITT" button.
