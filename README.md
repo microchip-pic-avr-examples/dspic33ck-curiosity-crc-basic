@@ -90,13 +90,13 @@ Online calculators can be used to test different configurations and try differen
 
 | Setting | MCC Melody | Online Calculator | Register | API | 
 | --- | --- | --- | --- | --- |
-| CRC Order | Word Width (Bits) | CRC order (1..64)| CRCCONH (CRCCONHbits.PLEN) | CRC_Initialize() |
-| Polynomial | Pre Defined Polynomial / Value | CRC polynom (hex) | CRCXORL (and CRCXORH for 32 bits) | CRC_Initialize() |
+| CRC Order | Word Width (Bits) | CRC order (1..64)| CRCCONH (CRCCONHbits.PLEN) | Register value set in CRC_Initialize() |
+| Polynomial | Pre Defined Polynomial / Value | CRC polynom (hex) | CRCXORL (and CRCXORH for 32 bits) | Register value set in CRC_Initialize() |
 | Initial Value | Initial Value | Initial value (hex) | CRCWDATL (and CRCWDATH for 32 bits) | CRC_SeedSet() |
-| Final XOR | Final XOR Value | Final XOR value (hex) | not stored in a register | CRC_CalculationResultXORGet() |
-| Shift Direction | Shift Direction | reverse data bytes | CRCCONL (CRCCONLbits.LENDIAN) | CRC_Initialize() | 
-| Reverse | Reverse CRC value (Before final XOR) | reverse CRC result before Final XOR | not stored in a register | CRC_CalculationResultReverseGet() | 
-| Data | Not visible in the MCC Melody UI | Data sequence | fed into CRCDATL | No API |
+| Final XOR | No setting in MCC Melody | Final XOR value (hex) | Not stored in a register | CRC_CalculationResultXORGet(), Input in CRC_CalculationResultGet() |
+| Shift Direction | Data -> Shift Direction | reverse data bytes | CRCCONL (CRCCONLbits.LENDIAN) | Register value set in CRC_Initialize() | 
+| Reverse | register value set in  | reverse CRC result before Final XOR | Not stored in a register | CRC_CalculationResultReverseGet(), Input in CRC_CalculationResultGet() | 
+| Data | Not visible in the MCC Melody UI | Data sequence | Fed into CRCDATL | No API |
 
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
 - Select "CRC-CCITT" button.
