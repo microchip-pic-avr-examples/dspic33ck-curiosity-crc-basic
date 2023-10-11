@@ -77,19 +77,22 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 The following settings are used in the calculation of CRC values:
 
-- Shift direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
-- Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
-- Reverse: The result of the CRC calculation can be reversed immediately after calculation. The value is true (perform reverse) or false (no reverse).
-- Final XOR Value: The value XOR'd with the CRC result after the calculation and any reverses. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
+- CRC Order: Length (in bits) of the polynomial
 - Polynomial: Generator polynomial used in the calculation of the CRC value. Many effective polynomials exist, but some of the most common are CRC-16-CCITT (0x1021) and CRC-32 (0x04C11DB7).
+- Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
+- Final XOR Value: The value XOR'd with the CRC result after the calculation and any reverses. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
+- Shift Direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
+- Reverse: The result of the CRC calculation can be reversed immediately after calculation. The value is true (perform reverse) or false (no reverse).
+
 
 For CRC-16-CCITT, the settings are as follows:
 
-- Shift Direction: MSB
-- Initial Value: -1 (0xFFFF)
-- Reverse: No Reverse
-- Final XOR Value: 0 (0x0000)
+- CRC Order: 16
 - Polynomial: 0x1021
+- Initial Value: -1 (0xFFFF)
+- Final XOR Value: 0 (0x0000)
+- Shift Direction: MSB
+- Reverse: No Reverse
 
 ### Online Calculator
 
