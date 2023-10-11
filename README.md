@@ -83,6 +83,13 @@ The following settings are used in the calculation of CRC values:
 - Final XOR Value: The value XOR'd with the CRC result after the calculation and any reverses. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
 - Polynomial: Generator polynomial used in the calculation of the CRC value. Many effective polynomials exist, but some of the most common are CRC-16-CCITT (0x1021) and CRC-32 (0x04C11DB7).
 
+For CRC-16-CCITT, the settings are as follows:
+
+- Shift Direction: MSB
+- Initial Value: -1 (0xFFFF)
+- Reverse: No Reverse
+- Final XOR Value: 0 (0x0000)
+- Polynomial: 0x1021
 
 ### Online Calculator
 
