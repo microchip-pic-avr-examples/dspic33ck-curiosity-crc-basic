@@ -32,7 +32,7 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 1. Connect the board to the PC using a USB cable.
 
-![Hardware Setup Image](images/hardware_setup.jpg)
+    ![Hardware Setup Image](images/hardware_setup.jpg)
 
 ## Software Setup
 
@@ -40,34 +40,34 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 1. Launch the MPLAB® Data Visualizer.
 
-![Data Visualizer Icon](images/data_visualizer_icon.JPG)
+    ![Data Visualizer Icon](images/data_visualizer_icon.JPG)
 
 2. Find the correct COM Port from the list on the left and click the play button.
 
-![COM Port list withplay button highlighted](images/dv_COM_select_play_highlighted.JPG)
+    ![COM Port list withplay button highlighted](images/dv_COM_select_play_highlighted.JPG)
 
 3. Select the "Send to Terminal" button.
 
-![Send to Terminal button](images/dv_data_capture_menu.JPG)
+    ![Send to Terminal button](images/dv_data_capture_menu.JPG)
 
 4. Click on the settings icon next to the source dropdown in the input section.
 
-![Source Settings Icon](images/dv_source_settings_button.JPG)
+    ![Source Settings Icon](images/dv_source_settings_button.JPG)
 
 5. Verify that the serial port settings match the following:
 
-![Source Settings Menu](images/dv_source_settings.JPG)
+    ![Source Settings Menu](images/dv_source_settings.JPG)
 
 ### Terminal Setup (Tera Term)
 1. Launch Tera Term
 2. Go to File -> New Connection.
 3. Select the "Serial" option and select the correct COM Port from the dropdown menu.
 
-![COM port selection](images/tera_term_COM_port_selection.JPG)
+    ![COM port selection](images/tera_term_COM_port_selection.JPG)
 
 4. Go to Setup -> Serial port and ensure that the settings match the following:
 
-![Tera Term Serial Port Settings](images/tera_term_serial_port_menu.JPG)
+    ![Tera Term Serial Port Settings](images/tera_term_serial_port_menu.JPG)
 
 ### MPLAB® X IDE Setup
 1. Launch MPLAB® X IDE and load the dspic33ck-curiosity-crc-basic project.
@@ -98,19 +98,20 @@ For CRC-16-CCITT, the settings are as follows:
 
 Online calculators can be used to test different configurations and try different settings. Most developers compare results with an online calculator for comparison purposes. An example that was used in the development of this code example is the [Online Calculator by Sven Reifegerste (Zorc)](http://www.zorc.breitbandkatze.de/crc.html).
 
-| Setting | MCC Melody | Online Calculator | Register | API | 
-| --- | --- | --- | --- | --- |
-| CRC Order | Word Width (Bits) | CRC order (1..64)| CRCCONH (CRCCONHbits.PLEN) | Register value set in CRC_Initialize() |
-| Polynomial | Pre Defined Polynomial / Value | CRC polynom (hex) | CRCXORL (and CRCXORH for 32 bits) | Register value set in CRC_Initialize() |
-| Initial Value | Initial Value | Initial value (hex) | CRCWDATL (and CRCWDATH for 32 bits) | CRC_SeedSet() |
-| Final XOR | No setting in MCC Melody | Final XOR value (hex) | Not stored in a register | CRC_CalculationResultXORGet(), Input in CRC_CalculationResultGet() |
-| Shift Direction | Data -> Shift Direction | reverse data bytes | CRCCONL (CRCCONLbits.LENDIAN) | Register value set in CRC_Initialize() | 
-| Reverse | register value set in  | reverse CRC result before Final XOR | Not stored in a register | CRC_CalculationResultReverseGet(), Input in CRC_CalculationResultGet() | 
-| Data | Not visible in the MCC Melody UI | Data sequence | Fed into CRCDATL | No API |
+Online Calculator:
+
+![Labeled Online Calculator](images/online_calculator_UI.JPG)
+
+MCC Melody: 
+
+![Labeled MCC Melody UI](images/demo_CRC_settings.JPG)
+![Labeled CRC_CalculationResultGet()](images/CRC_CalculationResultGet.JPG)
+
+***Note**: The "Reverse CRC value" and "Final XOR Value" only work for the simulator, they will not be used in the firmware calculations.
 
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
 - Select "CRC-CCITT" button.
-- Enter the folowing for "data sequence": %38%37%36%35%34%33%32%31
+- Enter the folowing for "data sequence": %6c%93
 - Click the "compute" button.
   
 The result should be 0x9B4D, matching the calculation performed by the MCC Melody CRC Driver.
