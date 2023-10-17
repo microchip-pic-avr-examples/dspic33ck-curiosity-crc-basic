@@ -77,22 +77,25 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 The following settings are used in the calculation of CRC values:
 
-- CRC Order: Length (in bits) of the polynomial
-- Polynomial: Generator polynomial used in the calculation of the CRC value. Many effective polynomials exist, but some of the most common are CRC-16-CCITT (0x1021) and CRC-32 (0x04C11DB7).
-- Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
-- Final XOR Value: The value XOR'd with the CRC result after the calculation and any reverses. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
-- Shift Direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
-- Reverse: The result of the CRC calculation can be reversed immediately after calculation. The value is true (perform reverse) or false (no reverse).
-
+1. CRC Order: Length (in bits) of the polynomial
+2. Polynomial: Generator polynomial used in the calculation of the CRC value. Many effective polynomials exist, but some of the most common are CRC-16-CCITT (0x1021) and CRC-32 (0x04C11DB7).
+3. Initial Value: The initial value of the CRC result. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
+4. Final XOR Value: The value XOR'd with the CRC result after the calculation and any reverses. Can theoretically be anything, but traditionally is either zero (0x0000 for 16-bit or 0x00000000 for 32-bit) or -1 (0xFFFF for 16-bit or 0xFFFFFFFF for 32-bit).
+5. Shift Direction: The direction the data is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB)
+6. Reverse: The result of the CRC calculation can be reversed immediately after calculation. The value is true (perform reverse) or false (no reverse).
+7. Seed Input Method: Can be direct (which is just the initial value) or nondirect (the result of a CRC calculation where the initial value is the input). 
+8. Seed Shift Direction: The direction the seed is shifted through the registers. Can start with the most significant bit (MSB) or the least significant bit (LSB).
 
 For CRC-16-CCITT, the settings are as follows:
 
-- CRC Order: 16
-- Polynomial: 0x1021
-- Initial Value: -1 (0xFFFF)
-- Final XOR Value: 0 (0x0000)
-- Shift Direction: MSB
-- Reverse: No Reverse
+1. CRC Order: 16
+2. Polynomial: 0x1021
+3. Initial Value: -1 (0xFFFF)
+4. Final XOR Value: 0 (0x0000)
+5. Shift Direction: MSB
+6. Reverse: No Reverse
+7. Seed Input Method: Direct
+8. Seed Shift Direction: MSB
 
 ### Online Calculator
 
@@ -102,12 +105,17 @@ Online Calculator:
 
 ![Labeled Online Calculator](images/online_calculator_UI.JPG)
 
+**Note**: Number 8, Seed Shift Direction, is assumed to be MSB in this online calculator.
+
 MCC Melody: 
 
 ![Labeled MCC Melody UI](images/demo_CRC_settings.JPG)
+
+**Note**: The "Reverse CRC value" and "Final XOR Value" only work for the simulator, they will not be used in the firmware calculations.
+
 ![Labeled CRC_CalculationResultGet()](images/CRC_CalculationResultGet.JPG)
 
-***Note**: The "Reverse CRC value" and "Final XOR Value" only work for the simulator, they will not be used in the firmware calculations.
+The firmware function CRC_CalculationGet() is where the Reverse and Final XOR Value settings are implemented.
 
 For this code example, the calculation performed by the MCC Melody CRC Driver can be replicated with the online calculator by the following steps:
 - Select "CRC-CCITT" button.
