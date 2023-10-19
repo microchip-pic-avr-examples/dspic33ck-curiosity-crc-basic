@@ -122,7 +122,7 @@ For this code example, the calculation performed by the MCC Melody CRC Driver ca
 - Enter the folowing for "data sequence": %6c%93
 - Click the "compute" button.
   
-The result should be 0x9B4D, matching the calculation performed by the MCC Melody CRC Driver.
+The result should be 0xE092, matching the calculation performed by the MCC Melody CRC Driver.
 
 ## Operation
 
