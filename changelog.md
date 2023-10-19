@@ -1,4 +1,4 @@
-# dsPIC33CK Curiosity CRC Basic Demo v1.0.1
+# dsPIC33CK Curiosity CRC Basic Demo v1.1.0
 
 ## Release Highlights
 
