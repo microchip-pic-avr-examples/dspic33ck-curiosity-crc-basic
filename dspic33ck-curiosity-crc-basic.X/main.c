@@ -79,7 +79,7 @@ int main(void)
     SYSTEM_Initialize();
     
     // data for which the CRC result will be calculated
-    uint8_t buffer[8] = {0x38, 0x37, 0x36, 0x35, 0x34, 0x33, 0x32, 0x31};
+    uint8_t buffer[2] = {0x6C, 0x93};
     uint8_t bufferLength = sizeof(buffer) / sizeof(buffer[0]);  
     
     uint16_t hardwareResult;
