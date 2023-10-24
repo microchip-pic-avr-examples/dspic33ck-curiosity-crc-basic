@@ -1,7 +1,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./images/microchip_logo_white.png">
   <source media="(prefers-color-scheme: light)" srcset="./images/microchip_logo_black.png">
-  <img alt="Microchip logo, changes to be visible in dark and light mode." src="./images/microchip_logo_black.jpg">
+  <img alt="Microchip logo, changes to be visible in dark and light mode." src="./images/microchip_logo_black.png">
 </picture>
 
 # dsPIC33CK Curiosity CRC Basic Code Example
