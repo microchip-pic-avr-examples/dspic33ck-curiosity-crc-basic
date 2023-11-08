@@ -1,8 +1,14 @@
-# dsPIC33CK Curiosity CRC Basic Demo v1.0.0
+# dsPIC33CK Curiosity CRC Basic Demo v1.1.0
 
 ## Release Highlights
-- Initial Release
+
+Small fixes for typos and images
+- Fixed "About" section on GitHub
+- Reposition images in the README
+- Got rid of hand drawn circles in the images
+
+Added Use Cases to Online Calculator section in README
 
 ## Features Added/Updated
-- The code example showcases CRC computation using the MCC Melody CRC Driver APIs.
-- Compares CRC-16-CCITT hardware CRC computation to software CRC computation.
+- Updated main.json to fix errors in the GitHub repository.
+- Updated README images 
