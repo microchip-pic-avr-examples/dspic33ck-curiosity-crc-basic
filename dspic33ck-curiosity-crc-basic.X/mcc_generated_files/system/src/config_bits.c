@@ -9,13 +9,13 @@
  *
  * @version   Firmware Driver Version 1.0.1
  *
- * @version   PLIB Version 1.2.1
+ * @version   PLIB Version 1.2.3
  *
  * @skipline  Device : dsPIC33CK256MP508
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -63,18 +63,18 @@
 #pragma config XTBST = ENABLE    //XT Boost->Boost the kick-start
 
 // FWDT
-#pragma config RWDTPS = PS1048576    //Run Mode Watchdog Timer Post Scaler select bits->1:1048576
+#pragma config RWDTPS = PS2147483648    //Run Mode Watchdog Timer Post Scaler select bits->1:2147483648
 #pragma config RCLKSEL = LPRC    //Watchdog Timer Clock Select bits->Always use LPRC
 #pragma config WINDIS = ON    //Watchdog Timer Window Enable bit->Watchdog Timer in Non-Window mode
 #pragma config WDTWIN = WIN25    //Watchdog Timer Window Select bits->WDT Window is 25% of WDT period
-#pragma config SWDTPS = PS1048576    //Sleep Mode Watchdog Timer Post Scaler select bits->1:1048576
+#pragma config SWDTPS = PS2147483648    //Sleep Mode Watchdog Timer Post Scaler select bits->1:2147483648
 #pragma config FWDTEN = ON_SW    //Watchdog Timer Enable bit->WDT controlled via SW, use WDTCON.ON bit
 
 // FPOR
 #pragma config BISTDIS = DISABLED    //Memory BIST Feature Disable->mBIST on reset feature disabled
 
 // FICD
-#pragma config ICS = PGD1    //ICD Communication Channel Select bits->Communicate on PGC1 and PGD1
+#pragma config ICS = PGD3    //ICD Communication Channel Select bits->Communicate on PGC3 and PGD3
 #pragma config JTAGEN = OFF    //JTAG Enable bit->JTAG is disabled
 #pragma config NOBTSWP = DISABLED    //BOOTSWP instruction disable bit->BOOTSWP instruction is disabled
 

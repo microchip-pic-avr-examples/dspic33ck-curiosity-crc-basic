@@ -7,15 +7,15 @@
  *            
  * @brief     This is the generated driver header file for the UART1 driver
  *            
- * @skipline @version   Firmware Driver Version 1.6.1
+ * @skipline @version   Firmware Driver Version 1.7.0
  *
- * @skipline @version   PLIB Version 1.4.1
+ * @skipline @version   PLIB Version 1.5.2
  *            
  * @skipline  Device : dsPIC33CK256MP508
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
