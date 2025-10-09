@@ -4,11 +4,9 @@
 
 Added support for debugging
 
-Updated to use latest software tool versions
-
 ## Features Added/Updated
 - Updated ICD Emulator Pin Placement in order to allow debugging
-- Updated versions to most recent versions
+- Updated to use latest software tool versions
 
 # dsPIC33CK Curiosity CRC Basic Demo v1.1.0
 
