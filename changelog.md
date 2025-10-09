@@ -4,7 +4,7 @@
 
 Added support for debugging
 
-Updated versions
+Updated to use latest software tool versions
 
 ## Features Added/Updated
 - Updated ICD Emulator Pin Placement in order to allow debugging

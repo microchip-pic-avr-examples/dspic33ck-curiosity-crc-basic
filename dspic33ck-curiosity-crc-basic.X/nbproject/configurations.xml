@@ -324,8 +324,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-2beff"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/C69672/CRC Project Bitbucket repositories/dspic33ck-curiosity-crc-basic/dspic33ck-curiosity-crc-basic.X/debug/default/dspic33ck-curiosity-crc-basic_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>
@@ -423,8 +421,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-2beff"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/C69672/CRC Project Bitbucket repositories/dspic33ck-curiosity-crc-basic/dspic33ck-curiosity-crc-basic.X/debug/default/dspic33ck-curiosity-crc-basic_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>

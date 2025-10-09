@@ -18,7 +18,8 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 - MPLAB® X IDE **6.25** or newer (https://www.microchip.com/MPLABXIDE)
 - MPLAB® XC-DSC Compiler **3.21** or a newer compiler (https://www.microchip.com/xcdsc)
-- MPLAB® Code Configurator (MCC) **5.7.1** or newer (https://www.microchip.com/mcc)
+- MPLAB® Code Configurator (MCC) Plugin **5.5.2** or newer (https://www.microchip.com/mcc)
+- MPLAB® Code Configurator (MCC) Core **5.7.1** or newer (https://www.microchip.com/mcc)
 - MPLAB® Code Configurator (MCC) Melody **2.9.2** or newer (https://www.microchip.com/melody)
 - CRC Driver **1.0.4** or newer (MCC Content Manager)
 - CRC PLIB **1.3.1** or newer (MCC Content Manager)
