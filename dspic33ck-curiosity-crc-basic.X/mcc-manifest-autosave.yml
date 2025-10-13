@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: dspic33ck-curiosity-crc-basic
-creation_date: 2025-10-13T10:32:36.637-07:00[America/Phoenix]
+creation_date: 2025-10-13T10:44:24.620-07:00[America/Phoenix]
 operating_system: Windows 11
 mcc_mode: IDE
 mcc_mode_version: v6.25
@@ -10,7 +10,7 @@ device_name: dsPIC33CK256MP508
 compiler: XCDSC 3.21
 mcc_version: 5.6.2
 mcc_core_version: 5.8.2
-content_manager_version: 6.0.3-tc.e
+content_manager_version: 6.0.2
 is_mcc_offline: false
 is_using_prerelease_versions: false
 mcc_content_registries: https://registry.npmjs.org/,https://artifacts.microchip.com/artifactory/api/npm/npm/
