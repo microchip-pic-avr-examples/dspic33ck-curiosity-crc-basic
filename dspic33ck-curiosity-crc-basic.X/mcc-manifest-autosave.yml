@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: dspic33ck-curiosity-crc-basic
-creation_date: 2025-10-09T13:08:58.528-07:00[America/Phoenix]
+creation_date: 2025-10-13T10:32:36.637-07:00[America/Phoenix]
 operating_system: Windows 11
 mcc_mode: IDE
 mcc_mode_version: v6.25
@@ -12,7 +12,7 @@ mcc_version: 5.6.2
 mcc_core_version: 5.8.2
 content_manager_version: 6.0.3-tc.e
 is_mcc_offline: false
-is_using_prerelease_versions: true
+is_using_prerelease_versions: false
 mcc_content_registries: https://registry.npmjs.org/,https://artifacts.microchip.com/artifactory/api/npm/npm/
 device_library: {library_class: com.microchip.mcc.melody.Library, name: Melody, version: 2.9.2}
 packs: {name: N/A, version: N/A}
