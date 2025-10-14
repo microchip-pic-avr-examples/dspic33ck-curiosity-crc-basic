@@ -16,14 +16,15 @@ The code example uses MPLAB® Code Configurator Melody CRC Driver to configure C
 
 ### Required Software
 
-- MPLAB® X IDE **6.15** or newer (https://www.microchip.com/MPLABXIDE)
-- MPLAB® XC16 Compiler **2.10** or a newer compiler (https://www.microchip.com/xc16)
-- MPLAB® Code Configurator (MCC) **5.5.7** or newer (https://www.microchip.com/mcc)
-- MPLAB® Code Configurator (MCC) Melody **2.6.1** or newer (https://www.microchip.com/melody)
-- CRC Driver **1.0.3** or newer (MCC Content Manager)
-- CRC PLIB **1.3.0** or newer (MCC Content Manager)
-- UART Driver **1.8.0** or newer (MCC Content Manager)
-- UART PLIB **1.4.1** or newer (MCC Content Manager)
+- MPLAB® X IDE **6.25** or newer (https://www.microchip.com/MPLABXIDE)
+- MPLAB® XC-DSC Compiler **3.21** or a newer compiler (https://www.microchip.com/xcdsc)
+- MPLAB® Code Configurator (MCC) Plugin **5.6.2** or newer (https://www.microchip.com/mcc)
+- MPLAB® Code Configurator (MCC) Core **5.8.2** or newer (https://www.microchip.com/mcc)
+- MPLAB® Code Configurator (MCC) Melody **2.9.2** or newer (https://www.microchip.com/melody)
+- CRC Driver **1.0.4** or newer (MCC Content Manager)
+- CRC PLIB **1.3.1** or newer (MCC Content Manager)
+- UART Driver **1.10.2** or newer (MCC Content Manager)
+- UART PLIB **1.5.2** or newer (MCC Content Manager)
 - Any terminal program, like the MPLAB® Data Visualizer (https://www.microchip.com/datavisualizer) or Tera Term (https://ttssh2.osdn.jp/index.html.en)
 
 ## Hardware Used

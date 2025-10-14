@@ -9,13 +9,13 @@
  *            
  * @skipline @version   Firmware Driver Version 1.0.3
  *
- * @skipline @version   PLIB Version 1.3.1
+ * @skipline @version   PLIB Version 1.4.1
  *            
  * @skipline  Device : dsPIC33CK256MP508
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -56,6 +56,7 @@ enum TRAPS_ERROR_CODE
     TRAPS_ADDRESS_ERR = 2, /**< Address error Trap vector */
     TRAPS_MATH_ERR = 3, /**< Math Error Trap vector */
     TRAPS_HARD_ERR = 7, /**< Generic Hard Trap vector */
+    TRAPS_DAE_ERR = 9, /**< Generic Soft Trap vector */
     TRAPS_DOOVR_ERR = 10, /**< Generic Soft Trap vector */
     TRAPS_APLL_ERR = 11, /**< Generic Soft Trap vector */
     TRAPS_NVM_ERR = 12, /**< Generic Soft Trap vector */
