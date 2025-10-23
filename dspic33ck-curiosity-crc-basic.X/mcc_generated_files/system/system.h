@@ -7,12 +7,10 @@
  * 
  * @brief     System driver using dsPIC MCUs.
  *
- * @version   Driver Version 1.0.1
- *
  * @skipline  Device : dsPIC33CK256MP508
 */
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -51,7 +49,7 @@ void SYSTEM_Initialize(void);
  * @brief   Initializes the CPU core control register
  * @return  none 
  */
-inline static void SYSTEM_CORCONInitialize()
+inline static void SYSTEM_CORCONInitialize(void)
 {
     CORCON = (CORCON & 0x00F2) | CORCON_MODE_PORVALUES;
 }

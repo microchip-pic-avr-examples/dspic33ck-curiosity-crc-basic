@@ -1,21 +1,21 @@
 /**
- * TRAPS Generated Driver Source File 
- * 
+ * TRAPS Generated Driver Source File
+ *
  * @file      traps.c
- *            
+ *
  * @ingroup   trapsdriver
- *            
+ *
  * @brief     This is the generated driver source file for TRAPS driver
- *            
+ *
  * @skipline @version   Firmware Driver Version 1.0.3
  *
- * @skipline @version   PLIB Version 1.3.1
- *            
+ * @skipline @version   PLIB Version 1.4.1
+ *
  * @skipline  Device : dsPIC33CK256MP508
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -39,8 +39,28 @@
 #include <xc.h>
 #include "../traps.h"
 
-#define ERROR_HANDLER __attribute__((interrupt,no_auto_psv))
+/*  To identify the source of the trap, or the exact address in the source code that caused the trap, enable the trap source macro to true.
+ When enabled, the variable `trapSrcAddr` holds the program address of the instruction that triggered the trap. This value can be examined using a debugger or printed via UART for diagnostic purposes.  */
+
+#define FIND_TRAP_SOURCE 0
+
+#if FIND_TRAP_SOURCE
+
+void __attribute__((interrupt(preprologue( "rcall _where_was_i ")), no_auto_psv)) _DefaultInterrupt(void);
+extern unsigned long trapSrcAddr;
+
+void __attribute__((interrupt(preprologue( "rcall _where_was_i ")), no_auto_psv)) _DefaultInterrupt(void)
+{
+    /* trapSrcAddr variable will have the address of the trap source , print the value using UART or use debug watch */
+    while(1)
+    {
+
+    }
+}
+#else
+#define ERROR_HANDLER __attribute__((weak, interrupt,no_auto_psv))
 #define FAILSAFE_STACK_GUARDSIZE 8
+#define FAILSAFE_STACK_SIZE 32
 
 // A private place to store the error code if we run into a severe error
 
@@ -48,16 +68,16 @@ static uint16_t TRAPS_error_code = -1;
 
 // Section: Driver Interface Function Definitions
 
-//@brief Halts 
+//@brief Halts
 void __attribute__((weak)) TRAPS_halt_on_error(uint16_t code)
 {
     TRAPS_error_code = code;
-#ifdef __DEBUG    
+#ifdef __DEBUG
     /* If we are in debug mode, cause a software breakpoint in the debugger */
     __builtin_software_breakpoint();
     while(1)
     {
-    
+
     }
 #else
     // Trigger software reset
@@ -70,19 +90,27 @@ void __attribute__((weak)) TRAPS_halt_on_error(uint16_t code)
 
 inline static void use_failsafe_stack(void)
 {
-    static uint8_t failsafe_stack[32];
+    static uint8_t failsafe_stack[FAILSAFE_STACK_SIZE];
     asm volatile (
         "   mov    %[pstack], W15\n"
         :
         : [pstack]"r"(failsafe_stack)
     );
-    
+
     /* Controls where the stack pointer limit is, relative to the end of the
      * failsafe stack
-     */ 
+     */
     SPLIM = (uint16_t)(((uint8_t *)failsafe_stack) + sizeof(failsafe_stack) - (uint16_t) FAILSAFE_STACK_GUARDSIZE);
 }
 
+/* cppcheck-suppress misra-c2012-8.4
+*
+* (Rule 8.4) REQUIRED: A compatible declaration shall be visible when an object or 
+* function with external linkage is defined
+*
+* Reasoning: Interrupt declaration are provided by compiler and are available
+* outside the driver folder
+*/
 /** Address error Trap vector**/
 void ERROR_HANDLER _AddressError(void)
 {
@@ -90,6 +118,14 @@ void ERROR_HANDLER _AddressError(void)
     TRAPS_halt_on_error(TRAPS_ADDRESS_ERR);
 }
 
+/* cppcheck-suppress misra-c2012-8.4
+*
+* (Rule 8.4) REQUIRED: A compatible declaration shall be visible when an object or 
+* function with external linkage is defined
+*
+* Reasoning: Interrupt declaration are provided by compiler and are available
+* outside the driver folder
+*/
 /** Generic Hard Trap vector**/
 void ERROR_HANDLER _HardTrapError(void)
 {
@@ -97,6 +133,14 @@ void ERROR_HANDLER _HardTrapError(void)
     TRAPS_halt_on_error(TRAPS_HARD_ERR);
 }
 
+/* cppcheck-suppress misra-c2012-8.4
+*
+* (Rule 8.4) REQUIRED: A compatible declaration shall be visible when an object or 
+* function with external linkage is defined
+*
+* Reasoning: Interrupt declaration are provided by compiler and are available
+* outside the driver folder
+*/
 /** Generic Soft Trap vector**/
 void ERROR_HANDLER _SoftTrapError(void)
 {
@@ -106,6 +150,14 @@ void ERROR_HANDLER _SoftTrapError(void)
       TRAPS_halt_on_error(TRAPS_DOOVR_ERR);
     }
 
+#ifdef _DAE
+    if(INTCON3bits.DAE == 1)
+    {
+      INTCON3bits.DAE = 0;  //Clear the trap flag
+      TRAPS_halt_on_error(TRAPS_DAE_ERR);
+    }
+
+#endif
     if(INTCON3bits.NAE == 1)
     {
       INTCON3bits.NAE = 0;  //Clear the trap flag
@@ -131,6 +183,14 @@ void ERROR_HANDLER _SoftTrapError(void)
     }
 }
 
+/* cppcheck-suppress misra-c2012-8.4
+*
+* (Rule 8.4) REQUIRED: A compatible declaration shall be visible when an object or 
+* function with external linkage is defined
+*
+* Reasoning: Interrupt declaration are provided by compiler and are available
+* outside the driver folder
+*/
 /** Oscillator Fail Trap vector**/
 void ERROR_HANDLER _OscillatorFail(void)
 {
@@ -138,6 +198,14 @@ void ERROR_HANDLER _OscillatorFail(void)
     TRAPS_halt_on_error(TRAPS_OSC_FAIL);
 }
 
+/* cppcheck-suppress misra-c2012-8.4
+*
+* (Rule 8.4) REQUIRED: A compatible declaration shall be visible when an object or 
+* function with external linkage is defined
+*
+* Reasoning: Interrupt declaration are provided by compiler and are available
+* outside the driver folder
+*/
 /** Math Error Trap vector**/
 void ERROR_HANDLER _MathError(void)
 {
@@ -145,6 +213,14 @@ void ERROR_HANDLER _MathError(void)
     TRAPS_halt_on_error(TRAPS_MATH_ERR);
 }
 
+/* cppcheck-suppress misra-c2012-8.4
+*
+* (Rule 8.4) REQUIRED: A compatible declaration shall be visible when an object or 
+* function with external linkage is defined
+*
+* Reasoning: Interrupt declaration are provided by compiler and are available
+* outside the driver folder
+*/
 /** Stack Error Trap Vector**/
 void ERROR_HANDLER _StackError(void)
 {
@@ -152,9 +228,10 @@ void ERROR_HANDLER _StackError(void)
      * means that we cannot trust the stack to operate correctly unless
      * we set the stack pointer to a safe place.
      */
-    use_failsafe_stack(); 
-    
+    use_failsafe_stack();
+
     INTCON1bits.STKERR = 0;  //Clear the trap flag
     TRAPS_halt_on_error(TRAPS_STACK_ERR);
 }
 
+#endif

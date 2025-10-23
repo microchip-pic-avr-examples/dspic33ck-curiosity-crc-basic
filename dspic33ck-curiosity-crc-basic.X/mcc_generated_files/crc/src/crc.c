@@ -9,13 +9,13 @@
  *            
  * @skipline @version   Firmware Driver Version 1.2.2
  *
- * @skipline @version   PLIB Version 1.3.0
+ * @skipline @version   PLIB Version 1.3.1
  *            
  * @skipline  Device : dsPIC33CK256MP508
 */
 
 /*
-© [2023] Microchip Technology Inc. and its subsidiaries.
+© [2025] Microchip Technology Inc. and its subsidiaries.
 
     Subject to your compliance with these terms, you may use Microchip 
     software and any derivatives exclusively with Microchip products. 
@@ -94,9 +94,9 @@ void CRC_Initialize(void)
 
     // initials the module - it will not be enabled until the end of the function
     // MOD Legacy; LENDIAN Start with MSb; CRCISEL Interrupt on shift complete and results ready; VWORD 0x0; SIDL disabled; CRCGO CRC is turned off; CRCMPT disabled; CRCEN disabled; CRCFUL disabled; 
-    CRCCONL = 0x0;
+    CRCCONL = 0x0U;
     // PLEN 16; DWIDTH 8; 
-    CRCCONH = 0x70F;
+    CRCCONH = 0x70FU;
     
     CRC_EventCallbackRegister(&CRC_EventCallback);
     
@@ -104,12 +104,12 @@ void CRC_Initialize(void)
     CRCCONLbits.CRCEN = 1;
 
     // some polynomial
-    CRCXORL = 0x1021;
-    CRCXORH = 0x0;
+    CRCXORL = 0x1021U;
+    CRCXORH = 0x0U;
     
     // some seed
-    CRCWDATL = 0x84CF;
-    CRCWDATH = 0x0;
+    CRCWDATL = 0x84CFU;
+    CRCWDATH = 0x0U;
 
     // set module state
     crcObj.remainingSize = 0;
@@ -123,12 +123,12 @@ void CRC_Deinitialize(void)
     IFS3bits.CRCIF = 0;
     IEC3bits.CRCIE = 0;
     
-    CRCCONL = 0x40;
-    CRCCONH = 0x0;
-    CRCXORL = 0x0;
-    CRCXORH = 0x0;
-    CRCWDATL = 0x0;
-    CRCWDATH = 0x0;
+    CRCCONL = 0x40U;
+    CRCCONH = 0x0U;
+    CRCXORL = 0x0U;
+    CRCXORH = 0x0U;
+    CRCWDATL = 0x0U;
+    CRCWDATH = 0x0U;
 }
 
 // Section: Private CRC Driver Functions
@@ -141,7 +141,8 @@ static bool CRC_ProgramTask(void)
     uint16_t highWord;
     bool status = false;
 
-    size = (uint16_t)0xFFFE - (uint16_t)(crcObj.ptr.program & (uint16_t)0xFFFF);
+    size = (uint16_t)0xFFFEU - (uint16_t)(crcObj.ptr.program & (uint16_t)0xFFFFU);
+
     tempTbl = TBLPAG;
 
     CRCCONLbits.CRCGO = false;
@@ -151,9 +152,9 @@ static bool CRC_ProgramTask(void)
 
     while((!CRCCONLbits.CRCFUL) && (crcObj.remainingSize) && (size))
     {
-        lowWord = __builtin_tblrdl((uint16_t)(crcObj.ptr.program & (uint16_t)0xFFFF));
+        lowWord = __builtin_tblrdl((uint16_t)(crcObj.ptr.program & (uint16_t)0xFFFFU));
         crcObj.ptr.program++;
-        highWord  = __builtin_tblrdh((uint16_t)(crcObj.ptr.program & (uint16_t)0xFFFF));
+        highWord  = __builtin_tblrdh((uint16_t)(crcObj.ptr.program & (uint16_t)0xFFFFU));
         crcObj.ptr.program++;
         
         CRCDATL = lowWord;
@@ -394,13 +395,13 @@ void CRC_CalculateProgramStart(uint32_t startAddr, uint32_t sizeBytes)
     crcObj.dataWidth = CRCCONHbits.DWIDTH + 1;
     crcObj.polyWidth = CRCCONHbits.PLEN + 1;
     crcObj.remainingSize = sizeBytes;
-	if(startAddr % 2 == 0) 
+	if ((startAddr % 2U) == 0U)
 	{
 		crcObj.ptr.program = startAddr;
 	}
 	else
 	{
-		crcObj.ptr.program = startAddr - 1;
+		crcObj.ptr.program = startAddr - 1U;
 	}
     crcObj.state = CRC_STATE_CALCULATE;
     crcObj.program = true;
@@ -477,8 +478,6 @@ uint32_t CRC_CalculationResultGet(bool reverse, uint32_t xorValue)
 {
     uint32_t result;
 
-    result = CRC_CalculationResultRawGet();
-
     if(reverse) 
     {
         result = CRC_CalculationResultReverseGet();
@@ -493,6 +492,14 @@ uint32_t CRC_CalculationResultGet(bool reverse, uint32_t xorValue)
     return result & CRC_PolynomialMask();
 }
 
+        /* cppcheck-suppress misra-c2012-8.4
+        *
+        * (Rule 8.4) REQUIRED: A compatible declaration shall be visible when an object or 
+        * function with external linkage is defined
+        *
+        * Reasoning: Interrupt declaration are provided by compiler and are available
+        * outside the driver folder
+        */
 void __attribute__ ((interrupt, no_auto_psv)) _CRCInterrupt(void)
 {
     switch(crcObj.state)
